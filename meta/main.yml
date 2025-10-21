@@ -1,0 +1,7 @@
+# Основные метаданные о роли
+---
+galaxy_info:
+  author: ukarpenko
+  description: Role for Jenkins installation with Java dependency for Debian
+  min_ansible_version: 2.10
+dependencies: []

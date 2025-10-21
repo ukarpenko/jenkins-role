@@ -1,0 +1,4 @@
+java_package_url: "https://download.oracle.com/java/21/latest/jdk-21_linux-x64_bin.deb"
+jdk_deb_file: "/tmp/jdk-21_linux-x64_bin.deb"
+jenkins_repo_url: "https://pkg.jenkins.io/debian-stable"
+jenkins_key_url: "https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key"

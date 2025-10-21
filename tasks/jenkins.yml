@@ -1,0 +1,36 @@
+# Tasks for Jenkins installation
+---
+- name: Install Jenkins dependencies
+  apt:
+    update_cache: yes
+    name:
+      - fontconfig
+      - ca-certificates
+      - apt-transport-https
+    state: present
+
+- name: Add Jenkins GPG key
+  get_url:
+    url: "{{ jenkins_key_url }}"
+    dest: "/etc/apt/keyrings/jenkins-keyring.asc"
+    mode: '0644'
+
+- name: Add Jenkins repository
+  lineinfile:
+    path: /etc/apt/sources.list.d/jenkins.list
+    line: "deb [signed-by=/etc/apt/keyrings/jenkins-keyring.asc] {{ jenkins_repo_url }} binary/"
+    create: yes
+    state: present
+
+- name: Install Jenkins
+  apt:
+    update_cache: yes
+    name:
+      - jenkins
+    state: present
+
+- name: Start Jenkins service
+  service:
+    name: jenkins
+    state: started
+    enabled: true

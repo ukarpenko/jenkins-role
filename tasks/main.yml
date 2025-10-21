@@ -1,0 +1,7 @@
+---
+- name: Install Java if not already installed
+  include_tasks: java.yml
+  when: ansible_facts.packages['java'] is not defined
+
+- name: Install Jenkins
+  include_tasks: jenkins.yml

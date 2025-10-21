@@ -1,0 +1,6 @@
+---
+- name: Install Jenkins and Java
+  hosts: jenkins
+  become: yes
+  roles:
+    - jenkins
